@@ -21,7 +21,7 @@ async def on_join_request(client: Client, message: Message):
     text += f'<b>Member:</b> {chat.members_count}\n'
     text += f'<b>Data Center:</b> {chat.dc_id or "Unknown"}\n'
     text += f'<b>Protect Content:</b> {chat.has_protected_content}\n\n'
-    text += 'Congratulation, your request was approved!'
+    text += f'Hey there {message.from_user.mention}, congratulation, your request was approved!'
 
     image = ''
     if chat.photo:
