@@ -31,7 +31,7 @@ async def on_join_request(client: Client, message: Message):
         except:
             pass
 
-    await sendPhotoTo(text, user_id, image) if image else sendCustom(text, user_id)
+    await sendPhotoTo(text, user_id, image) if image else await sendCustom(text, user_id)
     await sleep(1)
     await gather(update_users(user_id, 'tag', message.from_user.mention),
                  client.approve_chat_join_request(message.chat.id, user_id))
