@@ -23,7 +23,7 @@ async def main():
         await gather(editCustom('Restarted Successfully!', chat_id, message_id), remove('.restartmsg'))
     else:
         await sendCustom('Bot Restarted!', OWNER_ID)
-    bot.add_handler(MessageHandler(start, command(CMD_START), CustomFilters.sudo))
+    bot.add_handler(MessageHandler(start, command(CMD_START) & CustomFilters.sudo))
     LOGGER.info('Bot started @%s', bot.me.username)
 
 
