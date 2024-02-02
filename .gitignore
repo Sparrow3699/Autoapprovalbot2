@@ -1,0 +1,9 @@
+.deepsource.toml
+.idea
+.vscode
+*.json
+*.pickle
+*.pyc
+*.session
+data*
+docker-compose.yml
