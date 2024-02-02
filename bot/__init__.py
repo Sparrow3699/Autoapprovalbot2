@@ -49,6 +49,9 @@ if not (TELEGRAM_HASH := environ.get('TELEGRAM_HASH', '')):
 SUDO = {int(uid) for uid in environ.get('SUDO', '').split() if uid.isdigit()}
 CHAT_IDS = {int(cid) for cid in environ.get('CHAT_IDS', '').split() if cid.startswith('-100')}
 
+if LOG_CHANNEL := environ.get('LOG_CHANNEL'):
+    LOG_CHANNEL = int(LOG_CHANNEL)
+
 DATABASE_URL = environ.get('DATABASE_URL', '')
 CMD_BROADCAST = environ.get('CMD_BROADCAST', 'bc')
 CMD_LOG = environ.get('CMD_LOG', 'log')
@@ -56,7 +59,6 @@ CMD_RESTART = environ.get('CMD_RESTART', 'restart')
 CMD_START = environ.get('CMD_START', 'start')
 CMD_USERS = environ.get('CMD_USERS', 'users')
 
-APPROVE_MESSAGE_TEXT = environ.get('APPROVE_MESSAGE_TEXT', 'Congratulation, you have been approved to join the channel!')
 UPSTREAM_REPO = environ.get('UPSTREAM_REPO', '')
 UPSTREAM_BRANCH = environ.get('UPSTREAM_BRANCH', 'master')
 UPDATE_EVERYTHING = environ.get('UPDATE_EVERYTHING', 'False').lower() == 'true'
