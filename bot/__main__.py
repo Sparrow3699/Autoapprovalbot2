@@ -5,7 +5,7 @@ from pyrogram.types import Message
 from time import time
 from asyncio import gather
 
-from bot import bot, bot_loop, config_dict, start_time, LOGGER, OWNER_ID, CMD_START
+from bot import bot, bot_loop, start_time, LOGGER, OWNER_ID, CMD_START
 from bot.helpers.filters import CustomFilters
 from bot.helpers.message_utils import sendMessage, sendCustom, editCustom
 from bot.helpers.utils import get_readable_time
