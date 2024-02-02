@@ -59,6 +59,11 @@ async def sendPhoto(caption: str, message: Message, photo, reply_markup: InlineK
 
 
 @handle_message
+async def sendPhotoTo(caption: str, chat_id: int, photo: str, reply_markup: InlineKeyboardMarkup=None):
+    return await bot.send_photo(chat_id, photo, limit.caption(caption), reply_markup=reply_markup, disable_notification=True)
+
+
+@handle_message
 async def sendFile(message: Message, doc: str, caption: str=''):
     await message.reply_document(doc, caption=limit.caption(caption), quote=True)
 
