@@ -46,8 +46,8 @@ if not (TELEGRAM_HASH := environ.get('TELEGRAM_HASH', '')):
     LOGGER.error('TELEGRAM_HASH variable is missing! Exiting now')
     exit(1)
 
-SUDO = {int(uid) for uid in environ.get('SUDO', '') if uid.isdigit()}
-CHAT_IDS = {int(cid) for cid in environ.get('CHAT_IDS', '') if cid.startswith('-100')}
+SUDO = {int(uid) for uid in environ.get('SUDO', '').split() if uid.isdigit()}
+CHAT_IDS = {int(cid) for cid in environ.get('CHAT_IDS', '').split() if cid.startswith('-100')}
 
 DATABASE_URL = environ.get('DATABASE_URL', '')
 CMD_BROADCAST = environ.get('CMD_BROADCAST', 'bc')
