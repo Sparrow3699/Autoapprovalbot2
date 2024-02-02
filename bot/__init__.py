@@ -29,6 +29,7 @@ if not (BOT_TOKEN := environ.get('BOT_TOKEN', '')):
 
 bot_id = BOT_TOKEN.split(':', 1)[0]
 
+
 if OWNER_ID := environ.get('OWNER_ID', ''):
     OWNER_ID = int(OWNER_ID)
 else:
@@ -48,6 +49,7 @@ if not (TELEGRAM_HASH := environ.get('TELEGRAM_HASH', '')):
 SUDO = {int(uid) for uid in environ.get('SUDO', '') if uid.isdigit()}
 CHAT_IDS = {int(cid) for cid in environ.get('CHAT_IDS', '') if cid.startswith('-100')}
 
+DATABASE_URL = environ.get('DATABASE_URL', '')
 CMD_BROADCAST = environ.get('CMD_BROADCAST', 'bc')
 CMD_LOG = environ.get('CMD_LOG', 'log')
 CMD_RESTART = environ.get('CMD_RESTART', 'restart')

@@ -19,4 +19,4 @@ async def restart(_, message: Message):
     osexecl(executable, executable, '-m', 'bot')
 
 
-bot.add_handler(MessageHandler(restart, command(CMD_RESTART) & CustomFilters.sudo))
+bot.add_handler(MessageHandler(restart, command(CMD_RESTART)))
