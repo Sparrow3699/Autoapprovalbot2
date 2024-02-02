@@ -6,6 +6,7 @@ from time import time
 from asyncio import gather
 
 from bot import bot, bot_loop, config_dict, start_time, LOGGER, OWNER_ID, CMD_START
+from bot.helpers.filters import CustomFilters
 from bot.helpers.message_utils import sendMessage, sendCustom, editCustom
 from bot.helpers.utils import get_readable_time
 from bot.modules import auto_approve, broadcast, get_log, get_users, restart
@@ -22,7 +23,7 @@ async def main():
         await gather(editCustom('Restarted Successfully!', chat_id, message_id), remove('.restartmsg'))
     else:
         await sendCustom('Bot Restarted!', OWNER_ID)
-    bot.add_handler(MessageHandler(start, command(CMD_START)))
+    bot.add_handler(MessageHandler(start, command(CMD_START), CustomFilters.sudo))
     LOGGER.info('Bot started @%s', bot.me.username)
 
 
