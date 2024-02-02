@@ -12,8 +12,8 @@ from bot.modules import auto_approve, broadcast, get_log, get_users, restart
 
 
 async def start(_, message: Message):
-    caption = config_dict['WELCOME_MESSAGE'] or f'Bot started since {get_readable_time(time() - start_time)}.'
     await sendMessage(f'Bot started since {get_readable_time(time() - start_time)}.', message)
+
 
 async def main():
     if await aiopath.isfile('.restartmsg'):
