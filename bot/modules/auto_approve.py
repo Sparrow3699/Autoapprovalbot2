@@ -16,4 +16,4 @@ async def on_join_request(client: Client, message: Message):
                  sendCustom(APPROVE_MESSAGE_TEXT, user_id))
 
 
-# bot.add_handler(ChatJoinRequestHandler(on_join_request, (group | channel) & chat(list(CHAT_IDS)) if CHAT_IDS else (group | channel)))
+bot.add_handler(ChatJoinRequestHandler(on_join_request, (group | channel) & chat(list(CHAT_IDS)) if CHAT_IDS else (group | channel)))
