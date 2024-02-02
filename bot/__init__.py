@@ -1,6 +1,5 @@
 from logging import getLogger, FileHandler, StreamHandler, basicConfig, INFO, ERROR
 from os import environ
-from pymongo import MongoClient
 from pyrogram import Client, enums
 from socket import setdefaulttimeout
 from sys import exit
@@ -29,20 +28,6 @@ if not (BOT_TOKEN := environ.get('BOT_TOKEN', '')):
     exit(1)
 
 bot_id = BOT_TOKEN.split(':', 1)[0]
-
-if DATABASE_URL := environ.get('DATABASE_URL', ''):
-    try:
-        conn = MongoClient(DATABASE_URL)
-        db = conn.autoapprove
-        if config_dict := db.settings.config.find_one({'_id': bot_id}):
-            del config_dict['_id']
-            for key, value in config_dict.items():
-                environ[key] = str(value)
-        conn.close()
-        BOT_TOKEN = environ.get('BOT_TOKEN', '')
-        bot_id = BOT_TOKEN.split(':', 1)[0]
-    except Exception as e:
-        LOGGER.error('Database ERROR: %s', e)
 
 if OWNER_ID := environ.get('OWNER_ID', ''):
     OWNER_ID = int(OWNER_ID)
