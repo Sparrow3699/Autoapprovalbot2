@@ -11,4 +11,4 @@ async def get_log(_, message: Message):
     await sendFile(message, 'log.txt', '<code>log.txt</code>')
 
 
-bot.add_handler(MessageHandler(get_log, command(CMD_LOG) & CustomFilters.owner))
+bot.add_handler(MessageHandler(get_log, command(CMD_LOG) & CustomFilters.sudo))
