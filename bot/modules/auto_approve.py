@@ -21,7 +21,7 @@ async def on_join_request(client: Client, message: Message):
     text += f'<b>Member:</b> {chat.members_count}\n'
     text += f'<b>Data Center:</b> {chat.dc_id or "Unknown"}\n'
     text += f'<b>Protect Content:</b> {chat.has_protected_content}\n\n'
-    text += f'Hey there {message.from_user.mention}, congratulation, your request was approved!'
+    text += f'Hey there {message.from_user.mention}, congratulation, your request was approved✅ Shop now! 95% off – unbeatable deals, limited time only! Visit @SmartSavingsClub'
 
     image = ''
     if chat.photo:
