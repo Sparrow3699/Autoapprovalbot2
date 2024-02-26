@@ -1,9 +1,9 @@
 from logging import FileHandler, StreamHandler, basicConfig, error as log_error, info as log_info, INFO
 from os import path as ospath, environ, remove
-from pip._internal.operations.freeze import freeze
 from subprocess import run as srun
 from sys import exit
 
+from pip._internal.operations.freeze import freeze
 
 if ospath.exists('log.txt'):
     with open('log.txt', 'r+') as f:

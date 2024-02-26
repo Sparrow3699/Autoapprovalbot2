@@ -1,6 +1,7 @@
-from aiofiles.os import makedirs, remove, path as aiopath
-from asyncio import gather, sleep
+from asyncio import sleep
 from os import path as ospath
+
+from aiofiles.os import makedirs, remove, path as aiopath
 from pyrogram import Client
 from pyrogram.filters import group, channel, chat
 from pyrogram.handlers import ChatJoinRequestHandler
@@ -33,8 +34,12 @@ async def on_join_request(client: Client, message: Message):
 
     await sendPhotoTo(text, user_id, image) if image else await sendCustom(text, user_id)
     await sleep(1)
-    await gather(update_users(user_id, 'tag', message.from_user.mention),
-                 client.approve_chat_join_request(message.chat.id, user_id))
+    await update_users(user_id, 'tag', message.from_user.mention)
+
+    try:
+        await client.approve_chat_join_request(message.chat.id, user_id)
+    except:
+        pass
 
     if LOG_CHANNEL:
         user = await client.get_users(user_id)

@@ -1,11 +1,11 @@
 from logging import getLogger, FileHandler, StreamHandler, basicConfig, INFO, ERROR
 from os import environ
-from pyrogram import Client, enums
 from socket import setdefaulttimeout
 from sys import exit
 from time import time
-from uvloop import install
 
+from pyrogram import Client, enums
+from uvloop import install
 
 install()
 setdefaulttimeout(600)

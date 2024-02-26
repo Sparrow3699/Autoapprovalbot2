@@ -1,10 +1,11 @@
-from aiofiles import open as aiopen
 from asyncio import create_subprocess_exec
 from os import execl as osexecl
+from sys import executable
+
+from aiofiles import open as aiopen
 from pyrogram.filters import command
 from pyrogram.handlers import MessageHandler
 from pyrogram.types import Message
-from sys import executable
 
 from bot import bot, CMD_RESTART
 from bot.helpers.filters import CustomFilters
