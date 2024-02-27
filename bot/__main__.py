@@ -10,6 +10,7 @@ from bot import bot, bot_loop, start_time, LOGGER, OWNER_ID, CMD_START
 from bot.helpers.filters import CustomFilters
 from bot.helpers.message_utils import sendMessage, sendCustom, editCustom
 from bot.helpers.utils import get_readable_time
+from bot.modules import auto_approve, broadcast, get_log, get_users, restart
 
 
 async def start(_, message: Message):
